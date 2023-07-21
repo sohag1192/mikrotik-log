@@ -1,0 +1,213 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 21,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "${database}"
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": false,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "9.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "${database}"
+          },
+          "editorMode": "builder",
+          "expr": "{job=\"$router\"} |~ `(?i)$topics` |~ `(?i)$search` !~ `(?i)$exclude`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Logs By Topics ",
+      "type": "logs"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "Loki",
+          "value": "Loki"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Database",
+        "multi": false,
+        "name": "database",
+        "options": [],
+        "query": "loki",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "3Tech_Core",
+          "value": "3Tech_Core"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Router",
+        "multi": false,
+        "name": "router",
+        "options": [
+          {
+            "selected": true,
+            "text": "3Tech_Core",
+            "value": "3Tech_Core"
+          },
+          {
+            "selected": false,
+            "text": "3TECH_Access",
+            "value": "3TECH_Access"
+          }
+        ],
+        "query": "3Tech_Core,3TECH_Access",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "hide": 0,
+        "includeAll": true,
+        "label": "Topics",
+        "multi": false,
+        "name": "topics",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "user",
+            "value": "user"
+          },
+          {
+            "selected": false,
+            "text": "login",
+            "value": "login"
+          },
+          {
+            "selected": false,
+            "text": "address",
+            "value": "address"
+          },
+          {
+            "selected": false,
+            "text": "nat",
+            "value": "nat"
+          },
+          {
+            "selected": false,
+            "text": "mangle",
+            "value": "mangle"
+          },
+          {
+            "selected": false,
+            "text": "bgp",
+            "value": "bgp"
+          },
+          {
+            "selected": false,
+            "text": "undo",
+            "value": "undo"
+          }
+        ],
+        "query": "user,login,address,nat,mangle,bgp,undo",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "hide": 0,
+        "label": "Search",
+        "name": "search",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Mikrotik-Logs",
+  "uid": "uyc2KqC4k",
+  "version": 17,
+  "weekStart": ""
+}

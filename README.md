@@ -11,5 +11,5 @@ cd /opt/
 wget https://github.com/riponmollick66/mikrotik-log/archive/refs/heads/main.zip
 unzip main.zip
 chmod +x /opt/mikrotik-log-main/install.sh
-/opt/opt/mikrotik-log-main/install.sh
+/opt/mikrotik-log-main/install.sh
 ```

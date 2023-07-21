@@ -1,0 +1,7 @@
+[Unit]
+Description=loki 
+After=network.target
+[Service]
+ExecStart=/etc/promtail/promtail -config.file=/etc/promtail/promtail-config.yaml
+[Install]
+WantedBy=multi-user.target

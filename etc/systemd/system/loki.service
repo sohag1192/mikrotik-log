@@ -1,0 +1,7 @@
+[Unit]
+Description=loki 
+After=network.target
+[Service]
+ExecStart=/etc/loki/loki -config.file=/etc/loki/loki-config.yaml
+[Install]
+WantedBy=multi-user.target

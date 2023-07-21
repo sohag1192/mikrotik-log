@@ -1,0 +1,12 @@
+/var/log/network-logs/*.log
+{
+        size 500M
+        copytruncate
+        create
+        compress
+        olddir /var/log/network-logs/logs-archive
+        rotate 4
+        postrotate
+                /usr/lib/rsyslog/rsyslog-rotate
+        endscript
+}
